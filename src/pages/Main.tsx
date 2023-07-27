@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import { nanoid } from "@reduxjs/toolkit";
-import todosProps from "../type/todo";
-// import Input from "../redux/components/Input";
+import { todosProps } from "../type/todo";
+import Input from "../redux/components/Input";
 
 const Main: React.FC = () => {
-  const [title, setTitle] = useState<string>();
-  const [contents, setContents] = useState<string>();
-
   const initialTodo = [
     {
       id: nanoid(),
@@ -34,36 +31,7 @@ const Main: React.FC = () => {
   return (
     <div>
       <header>My Todo List</header>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          const newTodo = {
-            id: nanoid(),
-            title,
-            contents,
-            isDone: false,
-          };
-          setTodos([...todos, newTodo]);
-        }}
-      >
-        <input
-          placeholder="제목"
-          type="text"
-          value={title}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            setTitle(event.target.value);
-          }}
-        />
-        <input
-          placeholder="내용"
-          type="text"
-          value={contents}
-          onChange={(event) => {
-            setContents(event.target.value);
-          }}
-        />
-        <button>입력하기</button>
-      </form>
+      <Input todos={todos} setTodos={setTodos} />
       <div>
         <h2>진행중 👩‍💻</h2>
         {todos

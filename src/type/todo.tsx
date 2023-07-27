@@ -1,8 +1,14 @@
-interface todosProps {
+import { SetStateAction } from "react";
+
+export interface todosProps {
   id: string;
   title: string | undefined;
   contents: string | undefined;
   isDone: boolean;
+}
+export interface inputProps {
+  todos: todosProps[];
+  setTodos: React.Dispatch<SetStateAction<todosProps[]>>;
 }
 
 // const chiledProps: React.FC<todosProps> = ({ id, title, contents, isDone }) => {
@@ -15,5 +21,3 @@ interface todosProps {
 //     </div>
 //   );
 // };
-
-export default todosProps;
