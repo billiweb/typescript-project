@@ -3,8 +3,11 @@ import { styled } from "styled-components";
 import { nanoid } from "@reduxjs/toolkit";
 import { todosProps } from "../type/todo";
 import Input from "../redux/components/Input";
+import { useNavigate } from "react-router-dom";
 
 const Main: React.FC = () => {
+  const navigate = useNavigate();
+
   const initialTodo = [
     {
       id: nanoid(),
@@ -67,11 +70,20 @@ const Main: React.FC = () => {
                 >
                   완료
                 </button>
+                <button
+                  onClick={() => {
+                    navigate(`/:${todo.id}`, {
+                      state: { todos },
+                    });
+                  }}
+                >
+                  수정
+                </button>
               </StList>
             );
           })}
       </div>
-      <div>
+      {/* <div>
         <h2>완료 🎉</h2>
         {todos
           .filter((todo) => todo.isDone === true)
@@ -106,10 +118,19 @@ const Main: React.FC = () => {
                 >
                   취소
                 </button>
+                <button
+                  onClick={() => {
+                    navigate(`/:${todo.id}`, {
+                      state: { todos, setTodos },
+                    });
+                  }}
+                >
+                  수정
+                </button>
               </StList>
             );
           })}
-      </div>
+      </div> */}
     </div>
   );
 };
