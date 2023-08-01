@@ -21,7 +21,6 @@ const Input: React.FC<inputProps> = ({ todos }) => {
           isDone: false,
         };
         dispatch(addTodo(newTodo));
-        // setTodos([...todos, newTodo]);
       }}
     >
       <input

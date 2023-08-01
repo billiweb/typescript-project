@@ -1,9 +1,12 @@
 import { styled } from "styled-components";
 import { inputProps } from "../../type/todo";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteTodo, switchTodo } from "../modules/todoSlice";
 
 const List: React.FC<inputProps> = ({ todos }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -20,24 +23,14 @@ const List: React.FC<inputProps> = ({ todos }) => {
                 <p>{todo.isDone.toString()}</p>
                 <button
                   onClick={() => {
-                    const deleteTodos = todos.filter((item) => {
-                      return item.id !== todo.id;
-                    });
-                    // setTodos(deleteTodos);
+                    dispatch(deleteTodo(todo.id));
                   }}
                 >
                   삭제
                 </button>
                 <button
                   onClick={() => {
-                    const switchTodos = todos.map((item) => {
-                      if (item.id === todo.id) {
-                        return { ...item, isDone: !item.isDone };
-                      } else {
-                        return item;
-                      }
-                    });
-                    // setTodos(switchTodos);
+                    dispatch(switchTodo(todo.id));
                   }}
                 >
                   완료
@@ -66,24 +59,14 @@ const List: React.FC<inputProps> = ({ todos }) => {
                 <p>{todo.isDone.toString()}</p>
                 <button
                   onClick={() => {
-                    const deleteTodos = todos.filter((item) => {
-                      return item.id !== todo.id;
-                    });
-                    // setTodos(deleteTodos);
+                    dispatch(deleteTodo(todo.id));
                   }}
                 >
                   삭제
                 </button>
                 <button
                   onClick={() => {
-                    const switchTodos = todos.map((item) => {
-                      if (item.id === todo.id) {
-                        return { ...item, isDone: !item.isDone };
-                      } else {
-                        return item;
-                      }
-                    });
-                    // setTodos(switchTodos);
+                    dispatch(switchTodo(todo.id));
                   }}
                 >
                   취소

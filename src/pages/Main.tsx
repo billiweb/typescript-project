@@ -7,7 +7,6 @@ import { RootState } from "../redux/modules";
 
 const Main = () => {
   const todos = useSelector((state: RootState) => state.todoSlice);
-  // const [todos, setTodos] = useState<TodosProps[]>(initialTodo);
 
   return (
     <div>
