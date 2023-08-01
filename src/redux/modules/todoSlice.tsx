@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
-import { todosProps } from "../../type/todo";
+import { TodosProps } from "../../type/todo";
 
-const initialState = [
+const initialState: TodosProps[] = [
   {
     id: nanoid(),
     title: "제목 1",
@@ -28,7 +28,9 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
-      return state;
+      console.log(action.payload);
+      // return [...state, action.payload];
+      state.push(action.payload);
     },
   },
 });

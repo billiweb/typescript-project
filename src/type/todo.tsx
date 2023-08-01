@@ -1,6 +1,6 @@
 import { SetStateAction } from "react";
 
-export interface todosProps {
+export interface TodosProps {
   id: string;
   title: string | undefined;
   contents: string | undefined;
@@ -8,6 +8,6 @@ export interface todosProps {
 }
 
 export interface inputProps {
-  todos: todosProps[];
-  setTodos: React.Dispatch<SetStateAction<todosProps[]>>;
+  todos: TodosProps[];
+  // setTodos: React.Dispatch<SetStateAction<TodosProps[]>>;
 }

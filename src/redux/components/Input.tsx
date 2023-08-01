@@ -1,22 +1,27 @@
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { inputProps } from "../../type/todo";
+import { inputProps, TodosProps } from "../../type/todo";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../modules/todoSlice";
 
-const Input: React.FC<inputProps> = ({ todos, setTodos }) => {
+const Input: React.FC<inputProps> = ({ todos }) => {
   const [title, setTitle] = useState<string>();
   const [contents, setContents] = useState<string>();
+
+  const dispatch = useDispatch();
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        const newTodo = {
+        const newTodo: TodosProps = {
           id: nanoid(),
           title,
           contents,
           isDone: false,
         };
-        setTodos([...todos, newTodo]);
+        dispatch(addTodo(newTodo));
+        // setTodos([...todos, newTodo]);
       }}
     >
       <input

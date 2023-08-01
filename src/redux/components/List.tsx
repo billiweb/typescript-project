@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { inputProps } from "../../type/todo";
 import { useNavigate } from "react-router-dom";
 
-const List: React.FC<inputProps> = ({ todos, setTodos }) => {
+const List: React.FC<inputProps> = ({ todos }) => {
   const navigate = useNavigate();
 
   return (
@@ -23,7 +23,7 @@ const List: React.FC<inputProps> = ({ todos, setTodos }) => {
                     const deleteTodos = todos.filter((item) => {
                       return item.id !== todo.id;
                     });
-                    setTodos(deleteTodos);
+                    // setTodos(deleteTodos);
                   }}
                 >
                   삭제
@@ -37,7 +37,7 @@ const List: React.FC<inputProps> = ({ todos, setTodos }) => {
                         return item;
                       }
                     });
-                    setTodos(switchTodos);
+                    // setTodos(switchTodos);
                   }}
                 >
                   완료
@@ -69,7 +69,7 @@ const List: React.FC<inputProps> = ({ todos, setTodos }) => {
                     const deleteTodos = todos.filter((item) => {
                       return item.id !== todo.id;
                     });
-                    setTodos(deleteTodos);
+                    // setTodos(deleteTodos);
                   }}
                 >
                   삭제
@@ -83,7 +83,7 @@ const List: React.FC<inputProps> = ({ todos, setTodos }) => {
                         return item;
                       }
                     });
-                    setTodos(switchTodos);
+                    // setTodos(switchTodos);
                   }}
                 >
                   취소
@@ -91,7 +91,7 @@ const List: React.FC<inputProps> = ({ todos, setTodos }) => {
                 <button
                   onClick={() => {
                     navigate(`/:${todo.id}`, {
-                      state: { todos, setTodos },
+                      state: { todos },
                     });
                   }}
                 >
