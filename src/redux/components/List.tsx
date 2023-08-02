@@ -37,7 +37,7 @@ const List = ({ todos, isDone }: InputProps) => {
                 </button>
                 <button
                   onClick={() => {
-                    navigate(`/:${todo.id}`);
+                    navigate(`/${todo.id}`);
                   }}
                 >
                   수정
@@ -46,43 +46,6 @@ const List = ({ todos, isDone }: InputProps) => {
             );
           })}
       </div>
-      {/* <div>
-        <h2>완료 🎉</h2>
-        {todos
-          .filter((todo) => todo.isDone === true)
-          .map((todo) => {
-            return (
-              <StList key={todo.id}>
-                <p>{todo.id}</p>
-                <p>{todo.title}</p>
-                <p>{todo.contents}</p>b<p>{todo.isDone.toString()}</p>
-                <button
-                  onClick={() => {
-                    dispatch(deleteTodo(todo.id));
-                  }}
-                >
-                  삭제
-                </button>
-                <button
-                  onClick={() => {
-                    dispatch(switchTodo(todo.id));
-                  }}
-                >
-                  취소
-                </button>
-                <button
-                  onClick={() => {
-                    navigate(`/:${todo.id}`, {
-                      state: { todos },
-                    });
-                  }}
-                >
-                  수정
-                </button>
-              </StList>
-            );
-          })}
-      </div> */}
     </>
   );
 };

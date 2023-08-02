@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { TodosProps } from "../type/todo";
 import Input from "../redux/components/Input";
 import List from "../redux/components/List";
 import { useSelector } from "react-redux";

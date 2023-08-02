@@ -1,11 +1,11 @@
 import { SetStateAction } from "react";
 
-export interface TodosProps {
-  id: string;
+export type TodosProps = {
+  id: string | undefined;
   title: string | undefined;
   contents: string | undefined;
   isDone: boolean;
-}
+};
 
 export interface InputProps {
   todos: TodosProps[];
