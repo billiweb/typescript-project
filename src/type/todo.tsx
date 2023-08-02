@@ -7,7 +7,8 @@ export interface TodosProps {
   isDone: boolean;
 }
 
-export interface inputProps {
+export interface InputProps {
   todos: TodosProps[];
+  isDone?: boolean;
   // setTodos: React.Dispatch<SetStateAction<TodosProps[]>>;
 }

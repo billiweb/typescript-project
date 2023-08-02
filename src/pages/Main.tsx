@@ -3,7 +3,7 @@ import { TodosProps } from "../type/todo";
 import Input from "../redux/components/Input";
 import List from "../redux/components/List";
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/modules";
+import { RootState } from "../redux/config/configStore";
 
 const Main = () => {
   const todos = useSelector((state: RootState) => state.todoSlice);
@@ -12,7 +12,8 @@ const Main = () => {
     <div>
       <header>My Todo List</header>
       <Input todos={todos} />
-      <List todos={todos} />
+      <List isDone={false} todos={todos} />
+      <List isDone={true} todos={todos} />
     </div>
   );
 };

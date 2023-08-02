@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { inputProps, TodosProps } from "../../type/todo";
+import { InputProps, TodosProps } from "../../type/todo";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../modules/todoSlice";
 
-const Input: React.FC<inputProps> = ({ todos }) => {
+const Input = ({ todos }: InputProps) => {
   const [title, setTitle] = useState<string>();
   const [contents, setContents] = useState<string>();
 
@@ -21,6 +21,8 @@ const Input: React.FC<inputProps> = ({ todos }) => {
           isDone: false,
         };
         dispatch(addTodo(newTodo));
+        setTitle("");
+        setContents("");
       }}
     >
       <input
